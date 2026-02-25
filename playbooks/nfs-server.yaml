@@ -7,6 +7,7 @@
   - name: Install nfs server
     ansible.builtin.dnf:
       name: nfs-utils
+      state: present
 
 
   - name: Create shared directory
@@ -33,6 +34,6 @@
     ansible.posix.firewalld:
       service: nfs
       state: enabled
-      immediate: true
       permanent: true
+      immediate: true
 
