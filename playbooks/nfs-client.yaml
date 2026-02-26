@@ -1,0 +1,35 @@
+---
+- hosts: ubuntu
+  become: true
+
+  tasks:
+
+  - name: Install automount packages
+    ansible.builtin.apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: true
+    loop:
+      - autofs
+      - python3
+      - nfs-common
+
+  - name: AutoFS File copy
+    ansible.builtin.copy:
+      src: ../files/nfs.autofs
+      dest: /etc/auto.master.d/nfs.autofs
+      owner: root
+      mode: '0644'
+
+  - name: Mount map file copy
+    ansible.builtin.copy:
+      src: ../files/auto.nfs
+      dest: /etc/auto.nfs
+      owner: root
+      mode: '0644'
+
+  - name: Start AutoFS service
+    ansible.builtin.systemd_service:
+      name: autofs
+      state: started
+      enabled: true
