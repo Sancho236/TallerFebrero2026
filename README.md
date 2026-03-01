@@ -24,7 +24,8 @@ Todas las maquinas cuentan ademas con conexion directa a internet.
 ## PRE-REQUISITOS:
 
 - Python3 instalado en el host y en los nodos
-  Verificacion:
+
+Verificacion:
 ```bash
 python3 --version
 ```
