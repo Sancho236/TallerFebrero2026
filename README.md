@@ -24,6 +24,11 @@ Todas las maquinas cuentan ademas con conexion directa a internet.
 ## PRE-REQUISITOS:
 
 - Python3 instalado en el host y en los nodos
+  Verificacion:
+```bash
+python3 --version
+```
+  Si no esta instalado:
 ```bash
 ssh user@host
 ```
@@ -64,7 +69,7 @@ cd TallerFebrero2026/
 
 ### Estructura del repositorio:
 
-```Estructura del repositorio
+```text
 .
 ├── inventories/
 │   ├── hosts.ini
@@ -98,11 +103,8 @@ ansible-galaxy collection install -r collections/requirements.yaml
 ```bash
 ansible-playbook -i inventories/hosts.ini site.yaml --ask-become-pass
 ```
-```bash
-< Contrasena para escalado de permisos >
-```
 
-El archivo "site.yaml" ejecutara los playbooks en el siguiente orden:
+El archivo "site.yaml" ejecuta los playbooks en el siguiente orden:
 1. hardening.yaml
 2. nfs-server.yaml
 3. nfs-client.yaml
