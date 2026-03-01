@@ -31,13 +31,7 @@ python3 --version
 ```
   Si no esta instalado:
 ```bash
-ssh user@host
-```
-```bash
 dnf install python3
-```
-```bash
-exit
 ```
 - Ansible instalado en host
 ```bash
@@ -105,7 +99,7 @@ ansible-galaxy collection install -r collections/requirements.yaml
 ansible-playbook -i inventories/hosts.ini site.yaml --ask-become-pass
 ```
 
-El archivo "site.yaml" ejecuta los playbooks en el siguiente orden:
+El playbook "site.yaml" ejecuta los playbooks en el siguiente orden:
 1. hardening.yaml
 2. nfs-server.yaml
 3. nfs-client.yaml
