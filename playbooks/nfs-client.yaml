@@ -20,6 +20,7 @@
       dest: /etc/auto.master.d/nfs.autofs
       owner: root
       mode: '0644'
+    notify: Restart autofs
 
   - name: Mount map file copy
     ansible.builtin.copy:
@@ -27,9 +28,17 @@
       dest: /etc/auto.nfs
       owner: root
       mode: '0644'
+    notify: Restart autofs
 
   - name: Start AutoFS service
     ansible.builtin.systemd_service:
       name: autofs
       state: started
       enabled: true
+
+  handlers:
+
+  - name: Restart autofs
+    ansible.builtin.systemd_service:
+      name: autofs
+      state: restarted
