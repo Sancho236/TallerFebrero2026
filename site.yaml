@@ -1,5 +1,6 @@
 ---
-- import_playbook: nfs-server.yaml
-- import_playbook: nfs-client.yaml
-- import_playbook: ubuntu-ufw.yaml
-- import_playbook: webserver.yaml
+- import_playbook: playbooks/hardening.yaml
+- import_playbook: playbooks/nfs-server.yaml
+- import_playbook: playbooks/nfs-client.yaml
+- import_playbook: playbooks/ubuntu-ufw.yaml
+- import_playbook: playbooks/webserver.yaml
