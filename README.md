@@ -10,7 +10,7 @@ El repositorio contiene playbooks de Ansible para desplegar y configurar:
 
 En el repositorio estan incluidos cuatro nodos y un host para el manejo de ansible:
 
-|----------|----------------------------------------|------------------------------|---------------|
+
 |   HOST   |                   OS                   |             Rol              |      IP       |
 |----------|----------------------------------------|------------------------------|---------------|
 | Bastion  | CentOS Stream 9 con GUI                | Equipo de control de Ansible | 192.168.10.1  |
@@ -18,37 +18,50 @@ En el repositorio estan incluidos cuatro nodos y un host para el manejo de ansib
 | Centos02 | Centos Stream 9 con instalacion minima | Secundario                   | 192.168.10.12 |
 | Ubuntu01 | Ubuntu 24.04.4 LTS                     | Cliente NFS                  | 192.168.10.21 |
 | Ubuntu02 | Ubuntu 24.04.4 LTS                     | Secundario                   | 192.168.10.22 |
-|----------|----------------------------------------|------------------------------|---------------|
 
 Todas las maquinas cuentan ademas con conexion directa a internet.
 
 ## PRE-REQUISITOS:
 
+- Python3 instalado en el host y en los nodos
+```bash
+ssh user@host
+```
+```bash
+dnf install python3
+```
 - Ansible instalado en host
-```dnf install ansible-core
+```bash
+dnf install ansible-core
 ```
 - Git instalado en host
-```dnf install git
+```bash
+dnf install git
 ```
 - Servicio SSH instalado en host
 - Servicios SSH instalados en los nodos
 - Privilegios SUDO en los nodos
 - Llave publica del host creada, agregada en "authorized_keys" en todos los nodos y agregada en GitHub (GitHub account settings -> SSH and GPG keys)
-```ssh-keygen -t ed25519
+```bash
+ssh-keygen -t ed25519
 ```
-```ssh-copy-id user@host
+```bash
+ssh-copy-id user@host
 ```
 
 ## INSTALACION:
 
 - Clonacion de repositorio
-```git clone < URL de GitHub (SSH)>
+```bash
+git clone < URL de GitHub (SSH)>
 ```
-```cd TallerFebrero2026/
+```bash
+cd TallerFebrero2026/
 ```
 
 ### Estructura del repositorio:
 
+```Estructura del repositorio
 .
 ├── inventories/
 │   └── hosts.ini
@@ -70,15 +83,19 @@ Todas las maquinas cuentan ademas con conexion directa a internet.
 ├── README.md
 ├── ansible
 └── site.yaml
+```
 
 ### Instalacion de modulos de ansible requeridos:
-```ansible-galaxy collection install -r collections/requirements.yaml
+```bash
+ansible-galaxy collection install -r collections/requirements.yaml
 ```
 
 ### Ejecucion de playbooks:
-```ansible-playbook -i inventories/hosts.ini site.yaml --ask-become-pass
+```bash
+ansible-playbook -i inventories/hosts.ini site.yaml --ask-become-pass
 ```
-``` < Contrasena para escalado de permisos >
+```bash
+< Contrasena para escalado de permisos >
 ```
 
 El archivo "site.yaml" ejecutara los playbooks en el siguiente orden:
@@ -91,11 +108,14 @@ El archivo "site.yaml" ejecutara los playbooks en el siguiente orden:
 Todos los playbooks son idempotentes y requieren de autenticacion SSH.
 
 ### Si su entorno cuenta con direcciones y cantidad de nodos diferentes, editar "hosts.ini" y reemplazar los valores que considere necesarios:
-```vim inventories/hosts.ini
+```bash
+vim inventories/hosts.ini
 ```
 
 ---
 Autor: Santiago Casavalle (334480)
+---
 Profesor: Enrique Verdes
+---
 Fecha: 01/03/2026
 ---
