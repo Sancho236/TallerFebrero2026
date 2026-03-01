@@ -30,6 +30,9 @@ ssh user@host
 ```bash
 dnf install python3
 ```
+```bash
+exit
+```
 - Ansible instalado en host
 ```bash
 dnf install ansible-core
@@ -53,7 +56,7 @@ ssh-copy-id user@host
 
 - Clonacion de repositorio
 ```bash
-git clone < URL de GitHub (SSH)>
+git clone < URL de GitHub (SSH) >
 ```
 ```bash
 cd TallerFebrero2026/
@@ -107,7 +110,7 @@ El archivo "site.yaml" ejecutara los playbooks en el siguiente orden:
 
 Todos los playbooks son idempotentes y requieren de autenticacion SSH.
 
-### Si su entorno cuenta con direcciones y cantidad de nodos diferentes, editar "hosts.ini" y reemplazar los valores que considere necesarios:
+Si su entorno cuenta con direcciones y cantidad de nodos diferentes, editar "hosts.ini" y reemplazar los valores que considere necesarios:
 ```bash
 vim inventories/hosts.ini
 ```
