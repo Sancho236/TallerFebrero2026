@@ -67,7 +67,9 @@ cd TallerFebrero2026/
 ```Estructura del repositorio
 .
 ├── inventories/
-│   └── hosts.ini
+│   ├── hosts.ini
+│   └── group_vars
+│       └── linux.yaml
 ├── playbooks/
 │   ├── hardening.yaml
 │   ├── nfs-server.yaml
@@ -84,7 +86,6 @@ cd TallerFebrero2026/
 │   └── shared-http.service
 ├── LICENSE
 ├── README.md
-├── ansible
 └── site.yaml
 ```
 
