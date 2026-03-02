@@ -4,22 +4,22 @@
 
   tasks:
 
-  - name: Update all installed packages CentOS
+  - name: Actualizo todos los paquetes instalados CentOS
     ansible.builtin.dnf:
       name: "*"
       state: latest
-    notify: Reboot servers
+    notify: Reiniciar servidores
     when: ansible_os_family == "RedHat"
 
-  - name: Update all installed packages in Ubuntu
+  - name: Actualizo todos los paquetes instalados Ubuntu
     ansible.builtin.apt:
       name: "*"
       state: latest
       update_cache: true
-    notify: Reboot servers
+    notify: Reiniciar servidores
     when: ansible_os_family == "Debian"
 
   handlers:
 
-  - name: Reboot servers
+  - name: Reiniciar servidores
     ansible.builtin.reboot:

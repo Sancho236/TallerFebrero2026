@@ -4,7 +4,7 @@
 
   tasks:
 
-  - name: Install automount packages
+  - name: Instalar paquetes para autofs
     ansible.builtin.apt:
       name: "{{ item }}"
       state: present
@@ -14,23 +14,23 @@
       - python3
       - nfs-common
 
-  - name: AutoFS File copy
+  - name: Copiar archivo de autofs en etc
     ansible.builtin.copy:
       src: ../files/nfs.autofs
       dest: /etc/auto.master.d/nfs.autofs
       owner: root
       mode: '0644'
-    notify: Restart autofs
+    notify: Reiniciar autofs
 
-  - name: Mount map file copy
+  - name: Copiar archivo de montaje en etc
     ansible.builtin.copy:
       src: ../files/auto.nfs
       dest: /etc/auto.nfs
       owner: root
       mode: '0644'
-    notify: Restart autofs
+    notify: Reiniciar autofs
 
-  - name: Start AutoFS service
+  - name: Iniciar servicio autofs
     ansible.builtin.systemd_service:
       name: autofs
       state: started
@@ -38,7 +38,7 @@
 
   handlers:
 
-  - name: Restart autofs
+  - name: Reiniciar autofs
     ansible.builtin.systemd_service:
       name: autofs
       state: restarted
