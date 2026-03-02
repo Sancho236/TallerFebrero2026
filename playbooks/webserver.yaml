@@ -13,7 +13,7 @@
       mode: '0644'
     notify: Reiniciar servicio http
 
-  - name: Iniciar servidor web
+  - name: Iniciar servicio http
     ansible.builtin.systemd_service:
       name: shared-http
       state: started
