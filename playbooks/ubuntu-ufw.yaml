@@ -4,10 +4,6 @@
 
   tasks:
 
-  - name: Reinicio UFW
-    community.general.ufw:
-      state: reset
-
   - name: Habilitar trafico saliente
     community.general.ufw:
       policy: allow
