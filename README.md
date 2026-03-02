@@ -108,6 +108,25 @@ El playbook "site.yaml" ejecuta los playbooks en el siguiente orden:
 
 Todos los playbooks son idempotentes y requieren de autenticacion SSH.
 
+## VERIFICACION SERVIDOR NFS
+```bash
+systemctl is-active nfs-server
+exportfs -v
+firewall-cmd --list-services | egrep 'nfs|mounted|rpc-bind'
+ls -l /srv/nfs/shared/README-NFS.txt
+```
+
+### RESULTADO ESPERADO
+
+## VERIFICACION CLIENTE NFS
+```bash
+systemctl status shared-http --no-pager
+curl -I http://localhost:8080/
+curl http://localhost:8080/README-NFS.txt
+```
+
+### RESULTADO ESPERADO
+
 Si su entorno cuenta con direcciones y cantidad de nodos diferentes, editar "hosts.ini" y reemplazar los valores que considere necesarios:
 ```bash
 vim inventories/hosts.ini
