@@ -117,7 +117,7 @@ ls -l /srv/nfs/shared/README-NFS.txt
 ```
 
 ### RESULTADO ESPERADO
-
+-
 ## VERIFICACION CLIENTE NFS
 ```bash
 systemctl status shared-http --no-pager
@@ -126,6 +126,14 @@ curl http://localhost:8080/README-NFS.txt
 ```
 
 ### RESULTADO ESPERADO
+-
+## LOGS
+```bash
+journalctl -u shared-http -n 50 --no-pager
+```
+
+### RESULTADO ESPERADO
+-
 
 Si su entorno cuenta con direcciones y cantidad de nodos diferentes, editar "hosts.ini" y reemplazar los valores que considere necesarios:
 ```bash
@@ -137,5 +145,5 @@ Autor: Santiago Casavalle (334480)
 ---
 Profesor: Enrique Verdes
 ---
-Fecha: 01/03/2026
+Fecha: 02/03/2026
 ---
