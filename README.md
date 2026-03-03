@@ -111,7 +111,7 @@ Todos los playbooks son idempotentes y requieren de autenticacion SSH.
 ## VERIFICACION SERVIDOR NFS
 ```bash
 systemctl is-active nfs-server
-exportfs -v
+exportfs -V
 firewall-cmd --list-services | egrep 'nfs|mounted|rpc-bind'
 ls -l /srv/nfs/shared/README-NFS.txt
 ```
