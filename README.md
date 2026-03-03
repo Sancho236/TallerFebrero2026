@@ -117,7 +117,8 @@ ls -l /srv/nfs/shared/README-NFS.txt
 ```
 
 ### RESULTADO ESPERADO
--
+<img width="887" height="159" alt="image" src="https://github.com/user-attachments/assets/41efddf0-64b2-44d1-8af4-233fddce16a7" />
+
 ## VERIFICACION CLIENTE NFS
 ```bash
 systemctl status shared-http --no-pager
@@ -126,14 +127,16 @@ curl http://localhost:8080/README-NFS.txt
 ```
 
 ### RESULTADO ESPERADO
--
+<img width="803" height="473" alt="image" src="https://github.com/user-attachments/assets/07d93bc0-6d92-4ab2-8f4b-ba31afc71420" />
+
 ## LOGS
 ```bash
 journalctl -u shared-http -n 50 --no-pager
 ```
 
 ### RESULTADO ESPERADO
--
+<img width="928" height="141" alt="image" src="https://github.com/user-attachments/assets/0c515388-62e0-4c55-ad58-5a07778f4098" />
+
 
 Si su entorno cuenta con direcciones y cantidad de nodos diferentes, editar "hosts.ini" y reemplazar los valores que considere necesarios:
 ```bash
