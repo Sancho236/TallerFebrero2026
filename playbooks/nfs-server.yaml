@@ -4,7 +4,7 @@
 
   tasks:
 
-  - name: Instalar servidor nfs
+  - name: Instalar servicio nfs
     ansible.builtin.dnf:
       name: nfs-utils
       state: present

@@ -17,7 +17,7 @@ En el repositorio estan incluidos cuatro nodos y un host para el manejo de ansib
 | Centos01 | CentOS Stream 9 con instalacion minima | Servidor NFS                 | 192.168.10.11/24 |
 | Centos02 | Centos Stream 9 con instalacion minima | Secundario                   | 192.168.10.12/24 |
 | Ubuntu01 | Ubuntu 24.04.4 LTS                     | Cliente NFS                  | 192.168.10.21/24 |
-| Ubuntu02 | Ubuntu 24.04.4 LTS                     | Secundario                   | 192.168.10.22/24 |
+| Ubuntu02 | Ubuntu 24.04.4 LTS                     | Cliente NFS                  | 192.168.10.22/24 |
 
 Todas las maquinas cuentan ademas con conexion directa a internet.
 
